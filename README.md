@@ -19,7 +19,7 @@ This program is currently in the very-early stages of development and in no way 
 #### Planned features
 Program execution flags:
 - "-append" or "-a" -> appends the output of the calculation to the input JSON
-- "-Silent" or "-s" -> suppresses most of the output to the console
+- "-silent" or "-s" -> suppresses most of the output to the console
 - "-verbose" or "-v" -> prints more stuff to the console
 
 ### Installation

@@ -2,9 +2,6 @@
 Author: Adam Diehl
 Program: Option Pricing -> Includes -> Black Scholes
 Date: 2020-07-28
-Version: 0.1
-Version notes:
-  - 0.1: Added closed form BS function
 Description: Calculates closed form solutions to the Black Scholes algorithm.
 */
 
