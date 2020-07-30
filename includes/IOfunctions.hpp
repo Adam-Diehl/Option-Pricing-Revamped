@@ -22,3 +22,17 @@ void PrettyPrint_Params_BlackScholes(json Parameters) {
   std::cout << " > Volatility: " << Parameters["Input Values"]["Volatility"] << "\n";
   std::cout << " > Time-to-Maturity: " << Parameters["Input Values"]["Time-to-Maturity"] << "\n";
 }
+
+/* ---------- IO Handlers for Subroutines ---------- */
+void HandleOutputBlackScholes(json Parameters, double Price, bool FlagAppendOutput, bool FlagCompact, bool FlagVerbose);
+void HandleOutputBlackScholes(json Parameters, double Price, bool FlagAppendOutput, bool FlagCompact, bool FlagVerbose) {
+  if (FlagVerbose) {
+    PrettyPrint_Params_BlackScholes(Parameters);
+    std::cout << "\nOutputs: \n";
+    std::cout << " > Option price = " << std::to_string(Price) << "\n";
+
+  } else if (!FlagCompact) {
+    std::cout << "Outputs: \n";
+    std::cout << " > Option price = " << std::to_string(Price) << "\n";
+  }
+}
