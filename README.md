@@ -4,15 +4,22 @@ This repository contains C++ scripts for pricing options under various assumptio
 
 ## About 
 ### Project Description
-Forthcoming.
+This project brings together the various programs that I have previously written for option pricing and connects them all through a lightweight CLI. The programmed is designed to read in a set of parameters from a JSON file, automatically select the best pricing algorithm, and then perform the appropriate calculations. For all but the most simple case (Black Scholes with closed form solution) this requires simulating stochastic differential equations. Performing these simulations in a performant manner requires careful memory management, hence the choice of a C family language. The program is (currently) implemented  entirely in C++, with a "mostly C style" (C++ is used for some 'quality of life' features). 
+
+This program is currently in the very-early stages of development and in no way should be considered a finished product. 
 
 ### Version Information
+- Version 0.2.1: Added logic to parse run flags, and some basic IO related to them
+- Version 0.2:
+	- App can parse and calculate European calls/puts using Black Scholes model
+	- App can read and parse JSON files
+	- Refactored IO, exception handling, removed hardcoded paths 
 - Version 0.1: Basic skeleton of app logic.
 
 #### Planned features
 Program execution flags:
 - "-append" or "-a" -> appends the output of the calculation to the input JSON
-- "-compact" or "-c" -> suppresses most of the output to the console
+- "-Silent" or "-s" -> suppresses most of the output to the console
 - "-verbose" or "-v" -> prints more stuff to the console
 
 ### Installation

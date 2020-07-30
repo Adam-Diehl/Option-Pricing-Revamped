@@ -2,9 +2,7 @@
 Author: Adam Diehl
 Program: Option Pricing -> Includes -> IOfunctions
 Date: 2020-07-28
-Version: 0.1
-Version notes:
-  - 0.1: Added pretty print for Black Scholes
+Revised: 2020-07-29
 Description: Functions to perform any IO beyond the most basic stuff that can be
   handled by the main file without clutter.
 */
@@ -24,15 +22,13 @@ void PrettyPrint_Params_BlackScholes(json Parameters) {
 }
 
 /* ---------- IO Handlers for Subroutines ---------- */
-void HandleOutputBlackScholes(json Parameters, double Price, bool FlagAppendOutput, bool FlagCompact, bool FlagVerbose);
-void HandleOutputBlackScholes(json Parameters, double Price, bool FlagAppendOutput, bool FlagCompact, bool FlagVerbose) {
+void IOHandlerOptionPricing(json Parameters, double Price, bool FlagAppendOutput, bool FlagSilent, bool FlagVerbose);
+void IOHandlerOptionPricing(json Parameters, double Price, bool FlagAppendOutput, bool FlagSilent, bool FlagVerbose) {
   if (FlagVerbose) {
     PrettyPrint_Params_BlackScholes(Parameters);
     std::cout << "\nOutputs: \n";
     std::cout << " > Option price = " << std::to_string(Price) << "\n";
-
-  } else if (!FlagCompact) {
-    std::cout << "Outputs: \n";
-    std::cout << " > Option price = " << std::to_string(Price) << "\n";
+  } else if (!FlagSilent) {
+    std::cout << "Option price = " << std::to_string(Price) << "\n";
   }
 }
