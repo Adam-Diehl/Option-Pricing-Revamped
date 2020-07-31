@@ -4,7 +4,13 @@ This repository contains C++ scripts for pricing options under various assumptio
 
 ## Table of Contents
 - [About](https://github.com/Adam-Diehl/Option-Pricing-Revamped#about)
+	- [Project Description](https://github.com/Adam-Diehl/Option-Pricing-Revamped#project-description)
+	- [Version Information](https://github.com/Adam-Diehl/Option-Pricing-Revamped#version-information)
+	- [Planned Features](https://github.com/Adam-Diehl/Option-Pricing-Revamped#planned-features)
+	- [Installation](https://github.com/Adam-Diehl/Option-Pricing-Revamped#installation)
 - [Technical Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#technical-details)
+	- [Financial Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#financial-details)
+	- [Computational Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#computational-details)
 
 ## About
 ### Project Description
@@ -77,6 +83,7 @@ User $ cat ./config/OptionParams_Call_Euro.json
         "Volatility": 0.2
     }
 }
+
 User $ ./OptionCalculator ./config/OptionParams_Call_Euro.json -v -a
 Input parameters:
  > Pricing mechanism: "Black Scholes"
@@ -115,7 +122,7 @@ This discusses the models, assumptions, and features of the program.
 
 ### Financial Details
 
-### Technical Details
+### Computational Details
 
 #### Black-Scholes
 
