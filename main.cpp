@@ -5,12 +5,13 @@ Date: 2020-07-27
 Revised: 2020-07:29
 Description: Handles the core logic that organizes the option pricing algorithms.
 Compile notes: gcc -o OptionCalculator main.cpp -std=c++11 -lstdc++
-Runtime notes: ./OptionCalculator OptionParams_Call_Euro.json
+Runtime notes: ./OptionCalculator ./config/OptionParams_Call_Euro.json
 JSON notes: Parameters["Option Type"]
 */
 
 /* ---------- Load Libraries ---------- */
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -69,6 +70,11 @@ int main(int argc, char *argv[])
     if (OptionType == "European") {
       double Price = BlackScholes(Parameters);
       IOHandlerOptionPricing(Parameters, Price, FlagAppendOutput, FlagSilent, FlagVerbose);
+      if (FlagAppendOutput) {
+        Parameters["Option Price"] = Price;
+        std::ofstream Output(Directory);
+        Output << std::setw(4) << Parameters << std::endl;
+      }
     } else if (OptionType == "American") {
       std::cout << "\n>>> American options are not currently implemented.\n";
     }
@@ -76,6 +82,9 @@ int main(int argc, char *argv[])
 
   // Shutdown
   if (FlagVerbose) {
+    if (FlagAppendOutput) {
+      std::cout << "File " << Directory << " modified to include option price\n";
+    }
     std::cout << "\nProgram terminated\n.";
   }
   return 0;

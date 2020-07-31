@@ -1,12 +1,13 @@
 {
-  "Price Evolution": "Black Scholes",
-  "Option Type": "European",
-  "Exercise Type": "Call",
-  "Input Values": {
-    "Initial Stock Price": 100.0,
-    "Strike Price": 101.0,
-    "Risk-Free Rate": 0.05,
-    "Volatility": 0.2,
-    "Time-to-Maturity": 1.0
-  }
+    "Exercise Type": "Call",
+    "Input Values": {
+        "Initial Stock Price": 100.0,
+        "Risk-Free Rate": 0.05,
+        "Strike Price": 101.0,
+        "Time-to-Maturity": 1.0,
+        "Volatility": 0.2
+    },
+    "Option Price": 9.927630032876948,
+    "Option Type": "European",
+    "Price Evolution": "Black Scholes"
 }
