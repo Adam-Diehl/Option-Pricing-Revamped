@@ -2,10 +2,10 @@
 Author: Adam Diehl
 Program: Option Pricing -> Main File
 Date: 2020-07-27
-Revised: 2020-07:29
+Revised: 2020-07-30
 Description: Handles the core logic that organizes the option pricing algorithms.
 Compile notes: gcc -o OptionCalculator main.cpp -std=c++11 -lstdc++
-Runtime notes: ./OptionCalculator ./config/OptionParams_Call_Euro.json
+Runtime notes: ./OptionCalculator ./config/VanillaCall.json
 JSON notes: Parameters["Option Type"]
 */
 
