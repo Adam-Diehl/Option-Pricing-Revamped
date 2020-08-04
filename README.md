@@ -18,7 +18,7 @@ This project brings together and extends the various programs that I have previo
 This program is currently in the very-early stages of development and in no way should be considered a finished product.
 
 ### Version Information
-- Version 0.2.4: Added antithetic acceleration to Monte Carlo simulation 
+- Version 0.2.4: Added antithetic acceleration to Monte Carlo simulation
 - Version 0.2.3: Added first draft of the Monte Carlo simulation for Geometric Brownian Motion
 - Version 0.2.2: Added initial implementation of three execution flags:
 	- "-append" or "-a" -> appends the output of the calculation to the input JSON
@@ -124,6 +124,11 @@ This discusses the models, assumptions, and features of the program.
 ### Financial Details
 
 ### Computational Details
+
+#### Antithetic Variates Method
+
+To reduce both the number of sample paths required and the variance of the aggregate of the paths we can use [antithetic variates](https://en.wikipedia.org/wiki/Antithetic_variates). For Gaussian random variables this essentially amounts to halving the number of random Gaussian numbers we sample and taking their negative instead. For details see
+- [*Introduction to reducing variance in Monte Carlo simulations*](http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ATV.pdf), Section 1.4.
 
 #### Black-Scholes
 
