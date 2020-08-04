@@ -44,13 +44,28 @@ double BlackScholesMonteCarlo(json Parameters) {
   std::normal_distribution<float> RNORM(0.0, 1.0);
 
   // Initialize memory
+  std::vector<std::vector<double> > dW(N,std::vector<double>(Steps));
   std::vector<std::vector<double> > PricePath(N,std::vector<double>(Steps));
+
+  //Fill out array with gaussian random numbers
+  for (int i=0; i < (N/2); i++) {
+    for (int j=0; j < Steps; j++) {
+        dW[i][j] = RNORM(gen);
+    }
+  }
+
+  // Antithetic Acceleration - "resample" -Z for the array of random numbers
+  for (int i = (N/2); i < N;  i++) {
+    for (int j=0; j < Steps; j++) {
+      dW[i][j] = dW[(i - (N/2))][j];
+    }
+  }
 
   // Simulate forward
   for (int i = 0; i < N; i++) {
     PricePath[i][0] = S;
     for (int j = 1; j < Steps; j++) {
-      PricePath[i][j] = PricePath[i][j-1] + r*PricePath[i][j-1]*dt + Vol*PricePath[i][j-1]*sqrtDT*RNORM(gen);
+      PricePath[i][j] = PricePath[i][j-1] + r*PricePath[i][j-1]*dt + Vol*PricePath[i][j-1]*sqrtDT*dW[i][j];
     }
   }
 
