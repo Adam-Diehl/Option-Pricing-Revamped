@@ -6,7 +6,6 @@ This repository contains C++ scripts for pricing options under various assumptio
 - [About](https://github.com/Adam-Diehl/Option-Pricing-Revamped#about)
 	- [Project Description](https://github.com/Adam-Diehl/Option-Pricing-Revamped#project-description)
 	- [Version Information](https://github.com/Adam-Diehl/Option-Pricing-Revamped#version-information)
-	- [Planned Features](https://github.com/Adam-Diehl/Option-Pricing-Revamped#planned-features)
 	- [Installation](https://github.com/Adam-Diehl/Option-Pricing-Revamped#installation)
 - [Technical Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#technical-details)
 	- [Financial Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#financial-details)
@@ -19,6 +18,7 @@ This project brings together and extends the various programs that I have previo
 This program is currently in the very-early stages of development and in no way should be considered a finished product.
 
 ### Version Information
+- Version 0.2.3: Added first draft of the Monte Carlo simulation for Geometric Brownian Motion
 - Version 0.2.2: Added initial implementation of three execution flags:
 	- "-append" or "-a" -> appends the output of the calculation to the input JSON
 	- "-silent" or "-s" -> suppresses most of the output to the console

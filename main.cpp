@@ -67,14 +67,18 @@ int main(int argc, char *argv[])
 
   // Send data to appropriate functions
   if (PriceMechanism == "Black Scholes") {
+
     if (OptionType == "European") {
-      double Price = BlackScholes(Parameters);
+      double Price = BlackScholesMonteCarlo(Parameters);
+
+      // Handle IO
       IOHandlerOptionPricing(Parameters, Price, FlagAppendOutput, FlagSilent, FlagVerbose);
       if (FlagAppendOutput) {
         Parameters["Option Price"] = Price;
         std::ofstream Output(Directory);
         Output << std::setw(4) << Parameters << std::endl;
       }
+
     } else if (OptionType == "American") {
       std::cout << "\n>>> American options are not currently implemented.\n";
     }

@@ -7,7 +7,10 @@
         "Time-to-Maturity": 1.0,
         "Volatility": 0.2
     },
-    "Option Price": 9.927630032876948,
     "Option Type": "European",
-    "Price Evolution": "Black Scholes"
+    "Price Evolution": "Black Scholes",
+    "Simulation Parameters": {
+        "Number of Steps": 252,
+        "Number of Simulations": 1000
+    },
 }
