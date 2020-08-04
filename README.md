@@ -18,6 +18,7 @@ This project brings together and extends the various programs that I have previo
 This program is currently in the very-early stages of development and in no way should be considered a finished product.
 
 ### Version Information
+- Version 0.2.4: Added antithetic acceleration to Monte Carlo simulation 
 - Version 0.2.3: Added first draft of the Monte Carlo simulation for Geometric Brownian Motion
 - Version 0.2.2: Added initial implementation of three execution flags:
 	- "-append" or "-a" -> appends the output of the calculation to the input JSON
