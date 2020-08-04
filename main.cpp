@@ -4,8 +4,8 @@ Program: Option Pricing -> Main File
 Date: 2020-07-27
 Revised: 2020-07-30
 Description: Handles the core logic that organizes the option pricing algorithms.
-Compile notes: gcc -o OptionCalculator main.cpp -std=c++11 -lstdc++
-Runtime notes: ./OptionCalculator ./config/VanillaCall.json
+Compile notes: gcc-10 -o OptionCalculator main.cpp -std=c++11 -lstdc++ -fopenmp
+Runtime notes: ./OptionCalculator ./config/VanillaCallMC.json
 JSON notes: Parameters["Option Type"]
 */
 

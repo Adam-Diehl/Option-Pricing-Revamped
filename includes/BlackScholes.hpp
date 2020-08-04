@@ -62,6 +62,7 @@ double BlackScholesMonteCarlo(json Parameters) {
   }
 
   // Simulate forward
+  #pragma omp parallel for
   for (int i = 0; i < N; i++) {
     PricePath[i][0] = S;
     for (int j = 1; j < Steps; j++) {
