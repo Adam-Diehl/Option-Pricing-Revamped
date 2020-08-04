@@ -5,8 +5,8 @@ This repository contains C++ scripts for pricing options under various assumptio
 ## Table of Contents
 - [About](https://github.com/Adam-Diehl/Option-Pricing-Revamped#about)
 	- [Project Description](https://github.com/Adam-Diehl/Option-Pricing-Revamped#project-description)
-	- [Version Information](https://github.com/Adam-Diehl/Option-Pricing-Revamped#version-information)
 	- [Installation](https://github.com/Adam-Diehl/Option-Pricing-Revamped#installation)
+	- [Version Information](https://github.com/Adam-Diehl/Option-Pricing-Revamped#version-information)
 - [Technical Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#technical-details)
 	- [Financial Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#financial-details)
 	- [Computational Details](https://github.com/Adam-Diehl/Option-Pricing-Revamped#computational-details)
@@ -17,8 +17,15 @@ This project brings together and extends the various programs that I have previo
 
 This program is currently in the very-early stages of development and in no way should be considered a finished product.
 
+### Installation
+Currently the program is pre-release, so the only way to install this is to compile from source. Compilation has been tested on a \*NIX environment with the following commands:
+```
+gcc-10 -o OptionCalculator main.cpp -std=c++11 -lstdc++ -fopenmp
+gcc-10 -o OptionCalculator main.cpp -std=c++11 -lstdc++ -fopenmp -O3
+```
+
 ### Version Information
-- Version 0.2.5: Added multithreading support through OpenMP (for the current MC method). 
+- Version 0.2.5: Added multithreading support through OpenMP (for the current MC method).
 - Version 0.2.4: Added antithetic acceleration to Monte Carlo simulation
 - Version 0.2.3: Added first draft of the Monte Carlo simulation for Geometric Brownian Motion
 - Version 0.2.2: Added initial implementation of three execution flags:
@@ -39,9 +46,6 @@ This program is currently in the very-early stages of development and in no way 
 	- "-milstein" or "-m" -> modifies standard Euler discretization with Milstein discretization
 	- "-srk" -> modified standard Euler discretization with stochastic Runge-Kutta
 - Unit tests
-
-### Installation
-Currently the only way to install this is to compile from source.
 
 #### External Dependencies
 - #include "includes/json.hpp" -> source: https://github.com/nlohmann/json
