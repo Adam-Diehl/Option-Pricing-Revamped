@@ -10,6 +10,7 @@ JSON notes: Parameters["Option Type"]
 */
 
 /* ---------- Load Libraries ---------- */
+#include <cstdlib>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -42,12 +43,15 @@ int main(int argc, char *argv[])
 
   // Parse program arguments: OPTIONAL arguments
   bool FlagAppendOutput = false; // append output value to JSON file
+  bool FlagEnableValidation = false; // validate input
   bool FlagSilent = false; // suppress most output to console
   bool FlagVerbose = false; // run program in verbose mode
   if (argc > 2) {
     for (char **pargv = argv+2; *pargv != argv[argc]; pargv++) {
       if (strcmp(*pargv, "-a") == 0 || strcmp(*pargv, "-append") == 0) {
         FlagAppendOutput = true;
+      } else if (strcmp(*pargv, "-eval") == 0 || strcmp(*pargv, "-enablevalidation") == 0) {
+        FlagEnableValidation = true;
       } else if (strcmp(*pargv, "-s") == 0 || strcmp(*pargv, "-silent") == 0) {
         FlagSilent = true;
       } else if (strcmp(*pargv, "-v") == 0 || strcmp(*pargv, "-verbose") == 0) {
@@ -61,6 +65,8 @@ int main(int argc, char *argv[])
     }
   }
 
+  // TODO -> Input validation if desired
+
   // Get top level data to route option calculator
   std::string PriceMechanism = Parameters["Price Evolution"];
   std::string OptionType = Parameters["Option Type"];
@@ -69,7 +75,7 @@ int main(int argc, char *argv[])
   if (PriceMechanism == "Black Scholes") {
 
     if (OptionType == "European") {
-      double Price = BlackScholesMonteCarlo(Parameters);
+      double Price = BlackScholes(Parameters);
 
       // Handle IO
       IOHandlerOptionPricing(Parameters, Price, FlagAppendOutput, FlagSilent, FlagVerbose);
@@ -91,5 +97,5 @@ int main(int argc, char *argv[])
     }
     std::cout << "\nProgram terminated\n.";
   }
-  return 0;
+  return EXIT_SUCCESS;
 }

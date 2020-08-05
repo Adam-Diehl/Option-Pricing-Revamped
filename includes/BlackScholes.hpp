@@ -2,7 +2,7 @@
 Author: Adam Diehl
 Program: Option Pricing -> Includes -> Black Scholes
 Date: 2020-07-28
-Revised: 2020-07-30
+Revised: 2020-08-03
 Description: Calculates closed form solutions to the Black Scholes algorithm.
 */
 
@@ -16,6 +16,9 @@ double NormCDF(double z, double sigma);
 double NormCDF(double z, double sigma) {
   return 0.5 * erfc(- z / (sigma*sqrt(2)));
 }
+
+/* ---------- Payoff Functions ---------- */
+// TODO
 
 /* ---------- Simulation Methods ---------- */
 // Black Scholes with simple Monte Carlo (Euler discretization) -- TODO
@@ -84,7 +87,7 @@ double BlackScholesMonteCarloMilstein(json Parameters) {
   return 0;
 }
 
-/* ---------- Black Scholes Family ---------- */
+/* ---------- Complete Wrappers for Black Scholes ---------- */
 // Closed form vanilla Black Scholes
 double BlackScholes(json Parameters);
 double BlackScholes(json Parameters) {

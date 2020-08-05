@@ -13,7 +13,7 @@ This repository contains C++ scripts for pricing options under various assumptio
 
 ## About
 ### Project Description
-This project brings together and extends the various programs that I have previously written for option pricing and connects them all through a lightweight CLI. The programmed is designed to read in a set of parameters from a JSON file, automatically select the best pricing algorithm, and then perform the appropriate calculations. For all but the most simple case (Black Scholes with closed form solution) this requires numerically simulating stochastic differential equations. Performing these simulations in a performant manner requires careful memory management, hence the choice of a C family language. The program is (currently) implemented  entirely in C++11, with a "mostly C style" (C++ is used for some 'quality of life' features).
+This project brings together and extends the various programs that I have previously written for option pricing and connects them all through a lightweight CLI. The programmed is designed to read in a set of parameters from a JSON file, select the best pricing algorithm, and then perform the appropriate calculations. For all but the most simple case (Black Scholes with closed form solution) this requires numerically simulating stochastic differential equations. Performing these simulations in a performant manner requires careful memory management, hence the choice of a C family language. The program is (currently) implemented  entirely in C++11, with a "mostly C style" (C++ is used for some 'quality of life' features).
 
 This program is currently in the very-early stages of development and in no way should be considered a finished product.
 
@@ -42,6 +42,7 @@ gcc-10 -o OptionCalculator main.cpp -std=c++11 -lstdc++ -fopenmp -O3
 #### Planned features
 - American options
 - Program execution flags:
+	- "-eval" or "-enablevalidation" -> checks input to prevent uncaught exceptions from JSON library
 	- "-greeks" or "-g" -> additionally outputs the Greeks for the option
 	- "-milstein" or "-m" -> modifies standard Euler discretization with Milstein discretization
 	- "-srk" -> modified standard Euler discretization with stochastic Runge-Kutta
@@ -53,12 +54,12 @@ gcc-10 -o OptionCalculator main.cpp -std=c++11 -lstdc++ -fopenmp -O3
 ### Examples
 Pass a JSON file on the command line to run the code:
 ```
-User $ ./OptionCalculator ./config/OptionParams_Call_Euro.json
+User $ ./OptionCalculator ./config/VanillaCall.json
 Option price = 9.927630
 ```
 With verbose flag:
 ```
-User $ ./OptionCalculator ./config/OptionParams_Call_Euro.json -v
+User $ ./OptionCalculator ./config/VanillaCall.json -v
 Input parameters:
  > Pricing mechanism: "Black Scholes"
  > Option type: "European"
@@ -76,7 +77,7 @@ Program terminated
 ```
 With append flag (and verbose flag):
 ```
-User $ cat ./config/OptionParams_Call_Euro.json
+User $ cat ./config/VanillaCall.json
 {
     "Price Evolution": "Black Scholes",
     "Option Type": "European",
@@ -90,7 +91,7 @@ User $ cat ./config/OptionParams_Call_Euro.json
     }
 }
 
-User $ ./OptionCalculator ./config/OptionParams_Call_Euro.json -v -a
+User $ ./OptionCalculator ./config/VanillaCall.json -v -a
 Input parameters:
  > Pricing mechanism: "Black Scholes"
  > Option type: "European"
@@ -105,7 +106,7 @@ Outputs:
  > Option price = 9.927630
 File ./config/OptionParams_Call_Euro.json modified to include option price
 
-User $ cat ./config/OptionParams_Call_Euro.json
+User $ cat ./config/VanillaCall.json
 {
     "Exercise Type": "Call",
     "Input Values": {
